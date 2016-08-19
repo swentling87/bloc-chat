@@ -3,7 +3,6 @@
     var ref = firebase.database().ref().child("rooms");
     var mesRef = firebase.database().ref().child("messages").orderByChild('roomId');
     var rooms = $firebaseArray(ref);
-    var messages = $firebaseArray(mesRef);
 
     var addChatRoom = function(newRoom) {
       rooms.$add({name: newRoom});

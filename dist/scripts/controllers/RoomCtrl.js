@@ -1,5 +1,5 @@
 (function() {
-  function RoomCtrl($scope, $uibModal, Room, Message) {
+  function RoomCtrl($scope, $uibModal, Room, Message, $cookies) {
 
     $scope.allRooms = Room.all;
     $scope.activeRoom = null;
@@ -21,6 +21,7 @@
     }
     $scope.sendMessage = function() {
        Message.send({
+           username: $cookies.get('blocChatCurrentUser'),
            roomId: $scope.activeRoom.$id,
            sentAt: firebase.database.ServerValue.TIMESTAMP,
            content: $scope.newMessage
@@ -31,5 +32,5 @@
 
   angular
     .module('blocChat')
-    .controller('RoomCtrl', ['$scope', '$uibModal', 'Room', 'Message', RoomCtrl]);
+    .controller('RoomCtrl', ['$scope', '$uibModal', 'Room', 'Message', '$cookies', RoomCtrl]);
 })();
