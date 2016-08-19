@@ -13,7 +13,7 @@
   <div class="hr-grey"></div>
   <ul class="messages" ng-repeat="message in messages">
     <div>
-      {{ message.content }}<small class="pull-right">{{ message.sentAt | date:'hh:mm a MMM d'}}</small>
+      <small class="username">{{ message.username }} : </small>{{ message.content }}<small class="pull-right">{{ message.sentAt | date:'hh:mm a MMM d'}}</small>
     </div>
   </ul>
   <div class="input-group input-group-lg">

@@ -56,3 +56,7 @@ body {
 .messages {
   margin-top: 10px;
 }
+
+.username {
+  font-weight: bold;
+}
