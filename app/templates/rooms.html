@@ -1,10 +1,25 @@
 <section class="chat-rooms container clearfix">
-  <h1>Bloc Chat</h1>
+  <h1 class="app-heading">Bloc Chat</h1>
   <button class="btn-sm btn-success" ng-click="open()">Create Chat Room</button>
   <div class="hr"></div>
     <div class="column fourth">
         <div class="rooms" ng-repeat="room in allRooms">
-            <h4>{{ room.name }}</h4>
+            <h4 class="chat-rooms-list" ng-click="setRoom(room)">{{ room.name }}</h4>
         </div>
     </div>
+</section>
+<section class="chat-screen" ng-show="roomName != null">
+  <h1 class="chat-heading">{{ roomName}}</h1>
+  <div class="hr-grey"></div>
+  <ul class="messages" ng-repeat="message in messages">
+    <div>
+      {{ message.content }}<small class="pull-right">{{ message.sentAt | date:'hh:mm a MMM d'}}</small>
+    </div>
+  </ul>
+  <div class="input-group input-group-lg">
+     <input type="text" class="form-control" ng-model="newMessage" placeholder="Enter new message...">
+     <span class="input-group-btn">
+         <button class="btn btn-normal" type="button" ng-disabled="newMessage === ''" ng-click="sendMessage()">Send</button>
+     </span>
+  </div>
 </section>
