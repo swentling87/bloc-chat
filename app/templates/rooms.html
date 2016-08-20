@@ -16,10 +16,10 @@
       <small class="username">{{ message.username }} : </small>{{ message.content }}<small class="pull-right">{{ message.sentAt | date:'hh:mm a MMM d'}}</small>
     </div>
   </ul>
-  <div class="input-group input-group-lg">
+  <form ng-submit="sendMessage()" class="input-group input-group-lg">
      <input type="text" class="form-control" ng-model="newMessage" placeholder="Enter new message...">
      <span class="input-group-btn">
-         <button class="btn btn-normal" type="button" ng-disabled="newMessage === ''" ng-click="sendMessage()">Send</button>
+         <button class="btn btn-success" type="button" ng-disabled="newMessage === ''" ng-click="sendMessage()">Send</button>
      </span>
-  </div>
+  </form>
 </section>
